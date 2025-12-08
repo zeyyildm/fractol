@@ -1,0 +1,17 @@
+WİNDOW = Sadece çerçeve. Piksellere dokunamayız.
+Image = Bellekte bir resim oluşturulmuş ama bu resim daha windowa gitmemiştir
+Image aslında bir dizi ama biz bu diziye ulaşamıyoruz şu an MLX te saklı bu dizi. get_adres_data dediğimde image'in adresini her satırın byte sayısını her pikselin kaç bit kullandığını buluruz.
+Yani ben get adress ile artık piksellere dokunabiliyorum.
+put_image_to_window = yapılan çizim windowa yapıştırılır.
+Fraktali hesapladıktan sonra pncereye yapıştırma yapacağız.
+Şimdi image yaratıp piksel boyamak lazım.
+
+FRAKTAL = HER PİKSEL İÇİN RENK HESAPLAMA
+
+1- PENCERE OLUŞUR
+2- IMAGE OLUŞUR
+3- IMAGE IN PİKSEL ADRESİ ALINIR: image bellekte var ama hangi adreste, her satır kaç byte fln
+4- PİKSELLER TEK TEK BOYANIR
+5- BOYANMIŞ IMAGE PENCEREYE GONDERİLİR
+
+EĞER ZOOM MOVE FALAN OLURSA PENCEREYE ÇİZMEYİZ ARKADAKİ BELLEĞE ÇİZER ORDAKİ IMAGE I TEKRAR PENCEREYE KOYARIZ
