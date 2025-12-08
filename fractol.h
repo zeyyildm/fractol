@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:13:47 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/08 20:48:46 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/08 21:45:47 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void init_julia(t_frac *f, double cx, double cy);
 double	ft_atof(const char *nptr);
 double	after_point(const char *nptr);
 int	arguments_parse(t_frac *f, int ac, char **av);
+int	key_events(int code, void *a)
 
 
 #endif
