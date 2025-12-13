@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:13:49 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/08 21:57:07 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/13 22:05:15 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,16 @@ int	arguments_parse(t_frac *f, int ac, char **av)
 
 void	mlx_inits_and_win(t_frac *f)
 {
-	f->mlx_ptr = mlx_init();
-	f->mlx_win = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, f->title);
-	f->image = mlx_new_image(f->mlx_ptr, WIDTH, HEIGHT);
-}
-
-void	paint_pixels(t_img *img, int x, int y)
-{
 	int				pixel_bits;
 	int				line_bytes;
 	int				endian;
-	char			*pixel_adress;
-	unsigned int	color;
-
-	img->data = mlx_get_data_addr(img->img_ptr, &pixel_bits,
-			&line_bytes, &endian);
-	pixel_adress = img->data + (y * line_bytes + x * (pixel_bits / 8));
-	color = 0xCBC0FF;
-	*(unsigned int *)pixel_adress = color;
+	
+	f->mlx_ptr = mlx_init();
+	f->mlx_win = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, f->title);
+	f->image = mlx_new_image(f->mlx_ptr, WIDTH, HEIGHT);
+	f->img_data = mlx_get_data_addr(f->img_ptr, &pixel_bits, &line_bytes,
+			&endian);
 }
-
 int	destroy_everything(void *a)
 {
 	t_frac	*frac;
@@ -80,7 +70,6 @@ int	destroy_everything(void *a)
 int	main(int ac, char **av)
 {
 	t_frac	frac;
-	t_img	img;
 
 	if (!arguments_parse(&frac, ac, av))
 	{
@@ -90,15 +79,9 @@ int	main(int ac, char **av)
 	mlx_inits_and_win(&frac);
 	mlx_hook(frac.mlx_win, 17, 1L << 0, destroy_everything, (void *)&frac);
 	mlx_hook(frac.mlx_win, 2, 1L << 0, key_events, (void *)&frac);
-	paint_pixels(&img, 10, 10);
-	int i;
-	i = 1;
-	while (i < 1000)
-	{
-		paint_pixels(&img, 10, i);
-		i++;
-	}
-	mlx_put_image_to_window(frac.mlx_ptr, frac.mlx_win, img.img_ptr, 10, 10);
+	render(&frac, "mandelbrot");
+	// if (frac.title == 'julia')
+	// 	render(&frac, "julia");
 	mlx_loop(frac.mlx_ptr);
 	return (0);
 }

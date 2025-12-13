@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 02:14:28 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/08 21:45:10 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/13 21:51:35 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	init_julia(t_frac *f, double cx, double cy)
 	f->min_y = -2.0;
 	f->max_y = 2.0;
 	f->zoom = 1.0;
+	f->max_iter = 80;
 	f->j_cx = cx;
 	f->j_cy = cy;
 }
@@ -74,7 +75,7 @@ void	init_mandelbrot(t_frac *f)
 	f->min_y = -1.5;
 	f->max_y = 1.5;
 	f->zoom = 1.0;
-	f->max_iter = 50;
+	f->max_iter = 80;
 	f->j_cx = 0;
 	f->j_cy = 0;
 }
