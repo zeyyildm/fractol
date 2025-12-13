@@ -6,14 +6,14 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:13:47 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/13 22:02:46 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/13 23:30:48 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# define HEIGHT 1000
-# define WIDTH 800
+# define HEIGHT 800
+# define WIDTH 1000
 
 # include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
@@ -40,6 +40,9 @@ typedef struct s_frac
 	void	*image;
 	char	*img_ptr;
 	char	*img_data;
+	int		size_line;
+	int		bits_per_pixel;
+	int		endian;
 }			t_frac;
 
 void		correct_usage(void);
@@ -51,6 +54,6 @@ int			arguments_parse(t_frac *f, int ac, char **av);
 int			key_events(int code, void *a);
 int			destroy_everything(void *a);
 void		render(t_frac *frac, char *str);
-void		calculate_mandelbrot(t_frac *frac, double real, double imag);
+void		calculate_mandelbrot(t_frac *frac, int x, int y);
 
 #endif
