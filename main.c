@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:13:49 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/13 23:36:07 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/14 00:29:27 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ void	mlx_inits_and_win(t_frac *f)
 	f->mlx_ptr = mlx_init();
 	f->mlx_win = mlx_new_window(f->mlx_ptr, WIDTH, HEIGHT, f->title);
 	f->img_ptr = mlx_new_image(f->mlx_ptr, WIDTH, HEIGHT);
-	f->img_data = mlx_get_data_addr(f->img_ptr, &f->bits_per_pixel, &f->size_line,
-			&f->endian);
+	f->img_data = mlx_get_data_addr(f->img_ptr, &f->bits_per_pixel,
+			&f->size_line, &f->endian);
 }
+
 int	destroy_everything(void *a)
 {
 	t_frac	*frac;
@@ -73,10 +74,11 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	mlx_inits_and_win(&frac);
-	render(&frac, "mandelbrot");
-	mlx_put_image_to_window(frac.mlx_ptr, frac.mlx_win, frac.img_ptr, 0,0);
-	// if (frac.title == 'julia')
-	// 	render(&frac, "julia");
+	if (ft_strncmp(frac.title, "mandelbrot", 11) == 0)
+		render(&frac, "mandelbrot");
+	if (ft_strncmp(frac.title, "julia", 6) == 0)
+		render(&frac, "julia");
+	mlx_put_image_to_window(frac.mlx_ptr, frac.mlx_win, frac.img_ptr, 0, 0);
 	mlx_hook(frac.mlx_win, 17, 1L << 0, destroy_everything, (void *)&frac);
 	mlx_hook(frac.mlx_win, 2, 1L << 0, key_events, (void *)&frac);
 	mlx_loop(frac.mlx_ptr);

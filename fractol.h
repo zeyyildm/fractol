@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:13:47 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/13 23:30:48 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/14 00:27:48 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_frac
 	int		size_line;
 	int		bits_per_pixel;
 	int		endian;
+	double	real;
+	double	imag;
 }			t_frac;
 
 void		correct_usage(void);
@@ -55,5 +57,8 @@ int			key_events(int code, void *a);
 int			destroy_everything(void *a);
 void		render(t_frac *frac, char *str);
 void		calculate_mandelbrot(t_frac *frac, int x, int y);
+void		calculate_julia(t_frac *frac, int x, int y);
+void		pix_address(t_frac *frac, int x, int y, int i);
+void		real_and_imag(t_frac *frac, int x, int y);
 
 #endif
