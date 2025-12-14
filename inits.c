@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 02:14:28 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/13 23:25:34 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/14 01:42:18 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ double	ft_atof(const char *nptr)
 void	init_julia(t_frac *f, double cx, double cy)
 {
 	f->min_x = -2.0;
-	f->max_x = 2.0;
+	f->max_x = 1.0;
 	f->min_y = -2.0;
 	f->max_y = 2.0;
 	f->zoom = 1.0;

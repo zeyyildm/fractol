@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 21:18:33 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/14 00:36:47 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/14 02:55:18 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,15 @@ void	pix_address(t_frac *frac, int x, int y, int i)
 
 void	real_and_imag(t_frac *frac, int x, int y)
 {
-	frac->real = frac->min_x + (double)x / WIDTH * (frac->max_x - frac->min_x);
-	frac->imag = frac->max_y - (double)y / HEIGHT * (frac->max_y - frac->min_y);
+    double center_x = (frac->min_x + frac->max_x) / 2;
+    double center_y = (frac->max_y + frac->min_y) / 2;
+	frac->real = center_x
+		+ ((double)x - WIDTH / 2)
+		/ (WIDTH / 2)
+		* ((frac->max_x - frac->min_x) / frac->zoom);
+
+	frac->imag = center_y
+		- ((double)y - HEIGHT / 2)
+		/ (HEIGHT / 2)
+		* ((frac->max_y - frac->min_y) / frac->zoom);
 }
