@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:13:49 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/14 02:56:28 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/14 03:04:18 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	main(int ac, char **av)
 		render(&frac, "julia");
 	mlx_put_image_to_window(frac.mlx_ptr, frac.mlx_win, frac.img_ptr, 0, 0);
 	mlx_mouse_hook(frac.mlx_win, zoom_in, (void *)&frac);
-	
 	mlx_hook(frac.mlx_win, 17, 1L << 0, destroy_everything, (void *)&frac);
 	mlx_hook(frac.mlx_win, 2, 1L << 0, key_events, (void *)&frac);
 	mlx_loop(frac.mlx_ptr);

@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:13:47 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/12/14 01:33:08 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/12/14 03:19:34 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ void		calculate_mandelbrot(t_frac *frac, int x, int y);
 void		calculate_julia(t_frac *frac, int x, int y);
 void		pix_address(t_frac *frac, int x, int y, int i);
 void		real_and_imag(t_frac *frac, int x, int y);
-int			zoom_in(t_frac *frac, int key_press);
+int			zoom_in(int button, int x, int y, void *param);
 
 #endif
